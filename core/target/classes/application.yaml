@@ -1,0 +1,38 @@
+server:
+  port: 8081
+spring:
+  aop:
+    proxy-target-class: true
+    expose-proxy: true
+  application:
+    name: yjshz-core
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/hmdp_yjshz?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&characterEncoding=utf8
+    username: root
+    password: 136314
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    password: 136314
+    timeout: 5s
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+  # AI服务配置
+ai:
+  consultant:
+    url: http://localhost:8084
+
+
+mybatis-plus:
+  type-aliases-package: com.yjshz.entity # 别名扫描包
+logging:
+  level:
+    com.yjshz: debug
